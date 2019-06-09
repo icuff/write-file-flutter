@@ -59,10 +59,6 @@ class _MyHomePageState extends State<MyHomePage> {
     String message = 'Message written with Flutter';
 
     widget.storage.writeData(message);
-
-    Scaffold.of(context).showSnackBar(new SnackBar(
-      content: new Text("Sending Message"),
-    ));
   }
 
   @override
