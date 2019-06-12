@@ -50,15 +50,20 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void writeData() async {
+    DateTime begin = DateTime.now();
     askPermission();
 
+    List array = [];
+    for(int i = 0; i < 1000000; i++) {
+      array.add('Line ' + (i + 1).toString());
+    }
+    widget.storage.writeData(array.join('\n'));
+
+    DateTime end = DateTime.now();
+    String duration = end.difference(begin).inMilliseconds.toString();
     setState(() {
-      successMsg = 'Finished writing in the file.';
+      successMsg = 'Finished in ' + duration + 'ms';
     });
-
-    String message = 'Message written with Flutter';
-
-    widget.storage.writeData(message);
   }
 
   @override
