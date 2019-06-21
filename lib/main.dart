@@ -53,11 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
     DateTime begin = DateTime.now();
     askPermission();
 
-    List array = [];
-    for(int i = 0; i < 1000000; i++) {
-      array.add('Line ' + (i + 1).toString());
-    }
-    widget.storage.writeData(array.join('\n'));
+    widget.storage.writeData('Flutter\n' * 10000);
 
     DateTime end = DateTime.now();
     String duration = end.difference(begin).inMilliseconds.toString();
